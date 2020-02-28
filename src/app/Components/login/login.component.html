@@ -1,0 +1,28 @@
+
+<div *ngIf = showLogin>
+    Username:
+    <input id="username" type = "text" [(ngModel)] = "username">
+
+    Password:
+    <input id="password" type = "password" [(ngModel)] = "password">
+
+    <button id="submit" (click) = "submit()">Submit</button>
+</div>
+
+<div *ngIf = showNavBar>
+    <app-nav-bar></app-nav-bar>
+
+    
+</div>
+
+<div *ngIf = "showManagerPage">
+    <app-manager-page></app-manager-page>
+</div>
+
+<div *ngIf = "showEmployeeProfile">
+    <app-employee-page></app-employee-page>
+</div>
+
+<div *ngIf = "showShowDrivers">
+    <app-show-drivers></app-show-drivers>
+</div>

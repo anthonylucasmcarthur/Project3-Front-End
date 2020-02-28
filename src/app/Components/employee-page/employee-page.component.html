@@ -1,0 +1,23 @@
+<p>employee-page works!</p>
+
+Car
+<button id = "showCar" (click) = "showCar()">Car Info</button>
+
+Location
+<button id = "showLocation" (click) = "showLocation()">My Location Info</button>
+
+Contact
+<button id = "showContact" (click) = "showContact()">My Contact Info</button>
+
+<div *ngIf = "showCarEdit">
+    <app-edit-car></app-edit-car>
+</div>
+
+<div *ngIf = "showContactEdit">
+    <app-edit-contact></app-edit-contact>
+</div>
+
+<div *ngIf = "showLocationEdit">
+    <app-edit-location></app-edit-location>
+</div>
+

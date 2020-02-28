@@ -1,0 +1,39 @@
+
+<div *ngIf = "showRegister">
+    First Name:
+    <input id = "fname" type = "text" [(ngModel)] = "fname">
+
+    Last Name:
+    <input id = "lname" type = "text" [(ngModel)] = "lname">
+
+    Email:
+    <input id = "email" type = "text" [(ngModel)] = "email">
+
+    Phone:
+    <input id = "phone" type = "text" [(ngModel)] = "phone">
+
+    Username:
+    <input id = "username" type = "text" [(ngModel)] = "username">
+
+    Password:
+    <input id = "password" type = "text" [(ngModel)] = "password">
+
+    Street:
+    <input id = "street" type = "text" [(ngModel)] = "street">
+
+    City:
+    <input id = "city" type = "text" [(ngModel)] = "city">
+
+    State:
+    <input id = "state" type = "text" [(ngModel)] = "state">
+
+    ZIP Code:
+    <input id = "zip" type = "text" [(ngModel)] = "zip">
+
+    <button id="submit" (click) = "submit()">Submit</button>
+
+</div>
+
+<div *ngIf = "showLogin">
+    <app-login></app-login>
+</div>
