@@ -1,17 +1,14 @@
 <p>employee-page works!</p>
 
-Car
-<button id = "showCar" (click) = "showCar()">Car Info</button>
+Contact
+<button id = "showContact" (click) = "showContact()">My Contact Info</button>
 
 Location
 <button id = "showLocation" (click) = "showLocation()">My Location Info</button>
 
-Contact
-<button id = "showContact" (click) = "showContact()">My Contact Info</button>
+Car
+<button id = "showCar" (click) = "showCar()">Car Info</button>
 
-<div *ngIf = "showCarEdit">
-    <app-edit-car></app-edit-car>
-</div>
 
 <div *ngIf = "showContactEdit">
     <app-edit-contact></app-edit-contact>
@@ -21,3 +18,6 @@ Contact
     <app-edit-location></app-edit-location>
 </div>
 
+<div *ngIf = "showCarEdit">
+    <app-edit-car></app-edit-car>
+</div>
