@@ -26,7 +26,7 @@ export class OfficeServiceService {
 
   deleteOffice(office:Office):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/offices/`,office).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/offices/${office.office_id}`).toPromise();
 
   }
 

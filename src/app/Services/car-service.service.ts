@@ -26,7 +26,7 @@ export class CarServiceService {
 
   deleteCar(car:Car):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/cars/`,car).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/cars/${car.car_id}`).toPromise();
 
   }
 
