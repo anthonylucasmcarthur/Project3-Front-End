@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import{Employee} from 'app/Models/Employee';
+import{Employee} from '../Models/Employee';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class EmployeeServiceService {
 
   deleteEmployee(user:Employee):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/employees/`,user).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/employees/${user.employee_id}`).toPromise();
 
   }
 

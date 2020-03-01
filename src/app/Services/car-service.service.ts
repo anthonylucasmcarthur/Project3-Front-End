@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Car} from 'app/Models/Car';
+import {Car} from '../Models/Car';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class CarServiceService {
 
   deleteCar(car:Car):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/cars/`,car).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/cars/${car.car_id}`).toPromise();
 
   }
 
