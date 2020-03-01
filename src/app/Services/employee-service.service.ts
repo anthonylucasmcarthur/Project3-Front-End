@@ -31,7 +31,7 @@ export class EmployeeServiceService {
 
   deleteEmployee(user:Employee):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/employees/`,user).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/employees/${user.employee_id}`).toPromise();
 
   }
 
