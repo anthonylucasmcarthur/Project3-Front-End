@@ -10,6 +10,6 @@ export class ConfigServiceService {
 
   getConfigurationByLabel(label:string):Promise<string>{
 
-    return this.http.get<string>(`http://localhost:9999/configurations/${label}`).toPromise();
+    return this.http.get(`http://localhost:9999/configurations/${label}`,{responseType: 'text'}).toPromise();
   }
 }
