@@ -29,15 +29,15 @@ export class EmployeeServiceService {
     return this.http.post<Employee>(`http://localhost:9999/employees`,user).toPromise();
   }
 
-  deleteEmployee(user:Employee):Promise<any>{
+  deleteEmployee(employee_id:number):Promise<any>{
 
-    return this.http.delete<any>(`http://localhost:9999/employees/${user.employee_id}`).toPromise();
+    return this.http.delete<any>(`http://localhost:9999/employees/${employee_id}`).toPromise();
 
   }
 
   updateEmployee(user:Employee):Promise<Employee>{
 
-    return this.http.put<Employee>(`http://localhost:9999/employees/`,user).toPromise();
+    return this.http.put<Employee>(`http://localhost:9999/employees`,user).toPromise();
 
   }
 

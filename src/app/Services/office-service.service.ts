@@ -24,15 +24,15 @@ export class OfficeServiceService {
     return this.http.post<Office>(`http://localhost:9999/offices`,office).toPromise();
   }
 
-  deleteOffice(office:Office):Promise<any>{
+  deleteOffice(office_id:number):Promise<boolean>{
 
-    return this.http.delete<any>(`http://localhost:9999/offices/${office.office_id}`).toPromise();
+    return this.http.delete<boolean>(`http://localhost:9999/offices/${office_id}`).toPromise();
 
   }
 
   updateOffice(office:Office):Promise<Office>{
 
-    return this.http.put<Office>(`http://localhost:9999/offices/`,office).toPromise();
+    return this.http.put<Office>(`http://localhost:9999/offices`,office).toPromise();
 
   }
 }
