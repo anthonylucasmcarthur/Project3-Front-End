@@ -2,22 +2,24 @@
 
 <div id="contactInfo">
     <h5 id="infoLabel">First Name</h5>
-    <input type="text" id="firstNameInput" [(ng-model)]="{{employee.first_name}}" value="{{employee.first_name}}"> 
+    <input type="text" id="firstNameInput" [(ngModel)]=f_name value="{{employee.first_name}}"> 
     <h5 id="infoLabel">Last Name</h5>
-    <input type="text" id="lastNameInput" [(ng-model)]="{{employee.last_name}}" value="{{employee.last_name}}"> 
+    <input type="text" id="lastNameInput" [(ngModel)]=l_name value="{{employee.last_name}}"> 
     <h5 id="infoLabel">Email</h5>
-    <input type="text" id="emailInput" [(ng-model)]="{{employee.email}}" value="{{employee.email}}"> 
+    <input type="text" id="emailInput" [(ngModel)]=email value="{{employee.email}}"> 
     <h5 id="infoLabel">Phone Number</h5>
-    <input type="text" id="phoneInput" [(ng-model)]="{{employee.phone_number}}" value="{{employee.phone_number}}"> 
+    <input type="text" id="phoneInput" [(ngModel)]=phone value="{{employee.phone_number}}"> 
     <h5 id="infoLabel">Username</h5>
-    <input type="text" id="usernameInput" [(ng-model)]="{{employee.username}}" value="{{employee.username}}"> 
+    <input type="text" id="usernameInput" [(ngModel)]=username value="{{employee.username}}"> 
     <h5 id="infoLabel">Password</h5>
-    <input type="text" id="passwordInput" [(ng-model)]="{{employee.password}}" value="{{employee.password}}"> 
+    <input type="text" id="passwordInput" [(ngModel)]=password value="{{employee.password}}"> 
     <h5 id="infoLabel">Address</h5>
-    <input type="text" id="addressInput" [(ng-model)]="{{employee.user_address}}" value="{{employee.user_address}}"> 
+    <input type="text" id="addressInput" [(ngModel)]=address value="{{employee.user_address}}"> 
 
-    <input type="checkbox" id="driverCheck" [(ng-model)]="{{employee.isDriver}}" ng-checked="isChecked" value="{{employee.isDriver}}">
-    <label for="driverCheck"> Driver</label><br>
-    <input type="checkbox" id="acceptingRidesCheck" [(ng-model)]="{{employee.is_active}}" ng-checked="isChecked" value="{{employee.is_active}}">
-    <label for="vehicle3"> Currently Accepting Rides</label><br>
+    <input type="checkbox" id="driverCheck" [(ngModel)]=isDriver ng-checked="isChecked" value="{{employee.isDriver}}">
+    <label for="driverCheck"> Driver</label>
+    <input type="checkbox" id="activeCheck" [(ngModel)]=isActive ng-checked="isChecked" value="{{employee.is_active}}">
+    <label for="activeCheck"> Active</label><br>
+
+    <button id="updateButton" (click)="UpdateContactInfo(employee)">Update</button>
 </div>

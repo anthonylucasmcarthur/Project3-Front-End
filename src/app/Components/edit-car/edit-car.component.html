@@ -2,16 +2,25 @@
 
 <div id="carInfo">
     <h5 id="infoLabel">Car Make</h5>
-    <input type="text" id="makeInput" [(ng-model)]="{{car.make}}" value="{{car.make}}"> 
+    <input type="text" id="makeInput" [(ngModel)]=make value="{{car.make}}"> 
     <h5 id="infoLabel">Car Model</h5>
-    <input type="text" id="modelInput" [(ng-model)]="{{car.model}}" value="{{car.model}}"> 
+    <input type="text" id="modelInput" [(ngModel)]=model value="{{car.model}}"> 
     <h5 id="infoLabel">Car Year</h5>
-    <input type="text" id="yearInput" [(ng-model)]="{{car.car_year}}" value="{{car.car_year}}"> 
+    <input type="text" id="yearInput" [(ngModel)]=year value="{{car.car_year}}"> 
     <h5 id="infoLabel">Car Colour</h5>
-    <input type="text" id="colourInput" [(ng-model)]="{{car.colour}}" value="{{car.colour}}"> 
+    <input type="text" id="colourInput" [(ngModel)]=colour value="{{car.colour}}"> 
 
-    <input type="checkbox" id="driverCheck" [(ng-model)]="{{employee.isDriver}}" ng-checked="isChecked" value="{{employee.isDriver}}">
-    <label for="driverCheck"> Driver</label><br>
-    <input type="checkbox" id="acceptingRidesCheck" [(ng-model)]="{{employee.is_accepting_rides}}" ng-checked="isChecked" value="{{employee.is_accepting_rides}}">
-    <label for="vehicle3"> Currently Accepting Rides</label><br>
+    <h5 id="infoLabel">Available Seats</h5>
+    <select id="seatSelect" [(ngModel)]=seats value="{{car.available_seats}}">
+        <option id="seatOption" value="1">1</option>
+        <option id="seatOption" value="2">2</option>
+        <option id="seatOption" value="3">3</option>
+        <option id="seatOption" value="4">4</option>
+        <option id="seatOption" value="5">5</option>
+        <option id="seatOption" value="6">6</option>
+        <option id="seatOption" value="7">7</option>
+        <option id="seatOption" value="8">8</option>
+    </select>
+
+    <button id="updateButton" (click)="UpdateCarInfo(car)">Update</button>
 </div>
