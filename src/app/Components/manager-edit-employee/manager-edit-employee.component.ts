@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Employee } from 'src/app/Models/Employee';
 import { EmployeeServiceService } from 'src/app/Services/employee-service.service';
 
@@ -23,4 +23,15 @@ async populateEmployeeTable(){
     this.populateEmployeeTable();
   }
 
+  
+  async delete(employee){
+    await this.ess.deleteEmployee(employee.employee_id);
+    this.ngOnInit();
+  }
+  async promote(employee){
+
+    employee.is_manager = true; 
+    await this.ess.updateEmployee(employee);
+    this.ngOnInit(); 
+  }
 }
