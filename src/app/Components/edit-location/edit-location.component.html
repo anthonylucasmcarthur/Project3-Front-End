@@ -2,6 +2,6 @@
 
 <div id="locationInfo">
     <select id="citySelect">
-        
+        <option *ngFor="let string of officeCities" value="{{officeCities}}">{{officeCities.Text}}</option>
     </select>
 </div>

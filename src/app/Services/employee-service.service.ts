@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import{Employee} from '../Models/Employee';
 
 @Injectable({
@@ -25,8 +25,14 @@ export class EmployeeServiceService {
   }
 
   addEmployee(user:Employee):Promise<Employee>{
-   
-    return this.http.post<Employee>(`http://localhost:9999/employees`,user).toPromise();
+    console.log(user);
+    
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append("Vary", "Origin");
+    headers.append("Vary", "Access-Control-Request-Method");
+    headers.append("Vary", "Access-Control-Request-Headers");
+    headers.append("Content-Type", "application/json");
+    return this.http.post<Employee>(`http://localhost:9999/employees/register`,user, {headers}).toPromise();
   }
 
   deleteEmployee(employee_id:number):Promise<any>{
