@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import{Employee} from '../Models/Employee';
 
 @Injectable({
@@ -25,8 +25,9 @@ export class EmployeeServiceService {
   }
 
   addEmployee(user:Employee):Promise<Employee>{
-   
+
     return this.http.post<Employee>(`http://localhost:9999/employees/register`,user).toPromise();
+
   }
 
   deleteEmployee(employee_id:number):Promise<any>{

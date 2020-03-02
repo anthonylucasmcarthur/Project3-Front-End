@@ -15,7 +15,7 @@ export class EditLocationComponent implements OnInit {
   constructor(private officeService : OfficeServiceService, private employeeService : EmployeeServiceService, private configService:ConfigServiceService) { }
 
   employee : Employee = null;
-  offices : Array<Office> = [];
+  offices : Office;
   officeCities : Array<string> = [];
 
   ngOnInit() {
@@ -26,12 +26,14 @@ export class EditLocationComponent implements OnInit {
   async GetAllOffices(){
     let offices: Office = await this.officeService.getAllOffices()
     .then((onfulfilled) => {
-      this.offices.push(onfulfilled);
+      this.offices = onfulfilled;
       console.log(this.offices);
 
       for(let i = 0; i < this.offices.length; i++){
-        this.officeCities.push(this.offices[i].office_address.split(", ")[2]);
+        let city : string = this.offices[i].office_address.split(", ")[1];
+        this.officeCities.push(city);
       }
+      console.log(this.officeCities);
       return onfulfilled;
     })
   }
