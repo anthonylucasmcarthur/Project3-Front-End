@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { EditCarComponent } from './Components/edit-car/edit-car.component';
 import { EditOfficeComponent } from './Components/edit-office/edit-office.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,13 @@ import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee
     EditOfficeComponent,
     NavBarComponent,
     ManagerEditEmployeeComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
