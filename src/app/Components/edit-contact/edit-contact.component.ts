@@ -14,22 +14,26 @@ export class EditContactComponent implements OnInit {
 
   employeeId : number;
   employee: Employee = null;
+  f_name : string;
+  l_name : string;
+  username : string;
+  password : string;
+  email : string;
+  phone : string;
+  address : string;
+  isDriver : boolean;
+  isActive : boolean;
+
 
   ngOnInit() {
     this.configService.currentEmployee.subscribe(currentEmployee => this.employee = currentEmployee);
-    // this.GetEmployeeById(this.employeeId);
   }
 
-  // async GetEmployeeById(id:number){
-  //   let special: Employee = await this.es.getEmployeeById(id)
-  //   .then((onfulfilled) => {
-  //     this.employee = onfulfilled;
-  //     console.log(this.employee);
-  //     return onfulfilled;
-  //   })
-  // }
+  async UpdateContactInfo(){
+    let employee : Employee = new Employee(this.employee.employee_id, this.email, this.f_name, this.l_name,
+      this.phone, this.username, this.password, this.address, this.employee.is_accepting_rides,
+      this.isActive, this.isDriver, this.employee.is_manager, this.employee.office);
 
-  async UpdateContactInfo(employee: Employee){
     let updated: Employee = await this.employeeService.updateEmployee(employee)
     .then((onfulfilled) => {
       this.employee = onfulfilled;

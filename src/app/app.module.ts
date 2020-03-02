@@ -18,6 +18,7 @@ import { EditCarComponent } from './Components/edit-car/edit-car.component';
 import { EditOfficeComponent } from './Components/edit-office/edit-office.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

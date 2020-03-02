@@ -16,7 +16,13 @@ export class EditCarComponent implements OnInit {
   constructor(private carService: CarServiceService, private employeeService:EmployeeServiceService, private configService: ConfigServiceService) { }
 
   employee : Employee = null;
-  car : Car = new Car(0, "", "", "", 0, 2000, null);
+  car : Car;
+  make : string;
+  model : string;
+  colour : string;
+  year : number;
+  seats : number;
+
   
   ngOnInit() {
     this.configService.currentEmployee.subscribe(currentEmployee => this.employee = currentEmployee);
@@ -32,8 +38,10 @@ export class EditCarComponent implements OnInit {
     })
   }
 
-  async UpdateCarInfo(car: Car){
-    let updated: Car = await this.carService.updateCar(car)
+  async UpdateCarInfo(){
+    this.car = new Car(this.car.car_id, this.colour, this.make, this.model, this.seats, this.year, this.car.employee);
+    
+    let updated: Car = await this.carService.updateCar(this.car)
     .then((onfulfilled) => {
       this.car = onfulfilled;
       console.log(this.car);

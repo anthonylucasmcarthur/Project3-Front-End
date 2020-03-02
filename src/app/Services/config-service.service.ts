@@ -13,6 +13,10 @@ export class ConfigServiceService {
   private employeeAccount = new BehaviorSubject<Employee>(null);
   currentEmployee = this.employeeAccount.asObservable();
 
+  changeEmployee(employee : Employee):void{
+    this.employeeAccount.next(employee);
+  }
+
   getConfigurationByLabel(label:string):Promise<string>{
 
     return this.http.get(`http://localhost:9999/configurations/${label}`,{responseType: 'text'}).toPromise();
