@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { ShowDriversComponent } from './components/show-drivers/show-drivers.component';
-// import { HomeComponent} from './components/home/home.component';
+import { ShowDriversComponent } from './Components/show-drivers/show-drivers.component';
+import { HomeComponent} from './Components/home/home.component';
 
 const routes: Routes = [
 
-// {path: "drivers", component: ShowDriversComponent},
-// {path: "home", component: HomeComponent},
-// {path: "**", component: HomeComponent}
+{path: "drivers", component: ShowDriversComponent},
+{path: "home", component: HomeComponent},
+{path: "**", component: HomeComponent}
 
 ];
 
