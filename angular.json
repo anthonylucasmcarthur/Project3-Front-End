@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Rideshare-FrontEnd"
+    }
+  },
+  "defaultProject": "Rideshare-FrontEnd",
+  "cli": {
+    "analytics": "cf0ea089-117d-43c8-90d8-844b10994a47"
+  }
 }
