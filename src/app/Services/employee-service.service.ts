@@ -26,7 +26,7 @@ export class EmployeeServiceService {
 
   addEmployee(user:Employee):Promise<Employee>{
    
-    return this.http.post<Employee>(`http://localhost:9999/employees`,user).toPromise();
+    return this.http.post<Employee>(`http://localhost:9999/employees/register`,user).toPromise();
   }
 
   deleteEmployee(employee_id:number):Promise<any>{
