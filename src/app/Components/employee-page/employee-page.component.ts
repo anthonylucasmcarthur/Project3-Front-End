@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-employee-page',
@@ -11,9 +12,10 @@ export class EmployeePageComponent implements OnInit {
   showContactEdit:boolean;
   showLocationEdit:boolean;
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle("Profile - Rideshare")
     this.showCarEdit = false;
     this.showContactEdit = true;
     this.showLocationEdit = false;
