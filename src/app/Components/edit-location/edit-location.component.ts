@@ -30,7 +30,6 @@ export class EditLocationComponent implements OnInit {
       console.log(this.offices);
 
       for(let i = 0; i < this.offices.length; i++){
-        console.log(this.offices[i]);
         let city : string = this.offices[i].office_address.split(", ")[1];
         this.officeCities.push(city);
       }

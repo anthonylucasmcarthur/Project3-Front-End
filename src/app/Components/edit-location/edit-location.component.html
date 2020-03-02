@@ -1,7 +1,8 @@
 <p>edit-location works!</p>
 
 <div id="locationInfo">
+    <h5 id="stateLabel">State</h5>
     <select id="citySelect">
-        <option *ngFor="let string of officeCities" value="{{officeCities}}">{{officeCities.Text}}</option>
+        <option *ngFor="let string of officeCities" value="{{string}}">{{string}}</option>
     </select>
 </div>
