@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { BehaviorSubject } from 'rxjs';
+import { Employee } from '../Models/Employee';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,9 @@ import {HttpClient} from '@angular/common/http'
 export class ConfigServiceService {
 
   constructor(private http:HttpClient) { }
+
+  private employeeAccount = new BehaviorSubject<Employee>(null);
+  currentEmployee = this.employeeAccount.asObservable();
 
   getConfigurationByLabel(label:string):Promise<string>{
 

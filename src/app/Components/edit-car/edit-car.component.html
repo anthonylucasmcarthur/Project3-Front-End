@@ -1,1 +1,17 @@
 <p>edit-car works!</p>
+
+<div id="carInfo">
+    <h5 id="infoLabel">Car Make</h5>
+    <input type="text" id="makeInput" [(ng-model)]="{{car.make}}" value="{{car.make}}"> 
+    <h5 id="infoLabel">Car Model</h5>
+    <input type="text" id="modelInput" [(ng-model)]="{{car.model}}" value="{{car.model}}"> 
+    <h5 id="infoLabel">Car Year</h5>
+    <input type="text" id="yearInput" [(ng-model)]="{{car.car_year}}" value="{{car.car_year}}"> 
+    <h5 id="infoLabel">Car Colour</h5>
+    <input type="text" id="colourInput" [(ng-model)]="{{car.colour}}" value="{{car.colour}}"> 
+
+    <input type="checkbox" id="driverCheck" [(ng-model)]="{{employee.isDriver}}" ng-checked="isChecked" value="{{employee.isDriver}}">
+    <label for="driverCheck"> Driver</label><br>
+    <input type="checkbox" id="acceptingRidesCheck" [(ng-model)]="{{employee.is_accepting_rides}}" ng-checked="isChecked" value="{{employee.is_accepting_rides}}">
+    <label for="vehicle3"> Currently Accepting Rides</label><br>
+</div>

@@ -15,7 +15,7 @@ export class EmployeePageComponent implements OnInit {
 
   ngOnInit() {
     this.showCarEdit = false;
-    this.showContactEdit = false;
+    this.showContactEdit = true;
     this.showLocationEdit = false;
   }
 

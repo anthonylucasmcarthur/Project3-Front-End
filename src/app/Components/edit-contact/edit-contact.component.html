@@ -1,4 +1,5 @@
 <p>edit-contact works!</p>
+
 <div id="contactInfo">
     <h5 id="infoLabel">First Name</h5>
     <input type="text" id="firstNameInput" [(ng-model)]="{{employee.first_name}}" value="{{employee.first_name}}"> 
@@ -17,6 +18,6 @@
 
     <input type="checkbox" id="driverCheck" [(ng-model)]="{{employee.isDriver}}" ng-checked="isChecked" value="{{employee.isDriver}}">
     <label for="driverCheck"> Driver</label><br>
-    <input type="checkbox" id="acceptingRidesCheck" [(ng-model)]="{{employee.is_accepting_rides}}" ng-checked="isChecked" value="{{employee.is_accepting_rides}}">
+    <input type="checkbox" id="acceptingRidesCheck" [(ng-model)]="{{employee.is_active}}" ng-checked="isChecked" value="{{employee.is_active}}">
     <label for="vehicle3"> Currently Accepting Rides</label><br>
 </div>
