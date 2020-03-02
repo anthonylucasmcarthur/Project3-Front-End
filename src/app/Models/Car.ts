@@ -2,6 +2,7 @@ import { Employee } from './Employee';
 
 export class Car {
     car_id : number;
+    color: string;
     make : string;
     model : string;
     available_seats : string;
