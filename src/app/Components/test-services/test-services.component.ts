@@ -19,29 +19,29 @@ export class TestServicesComponent implements OnInit {
   employees: Employee;
 
   office:Office = {
-    office_id : 118,
-    office_address : "496 High Street, Morgantown, WV 26506"
+    office_id : 2,
+    office_address : "11730 Plaza America Drive, Reston, VA 20190"
   }
 
 
   employee:Employee = {
-    employee_id : 28,
-    email : "anthony@getMaxListeners.com",
-    first_name : "Anthony",
-    last_name : "McArthur",
-    phone_number : "3402500340",
-    username : "Tmac",
-    password : "password",
-    user_address : "12404 Koehler Dr",
-    is_accepting_rides : true,
-    is_active : true,
-    isDriver : true,
+    employee_id : 30,
+    email : "test@gmail.com",
+    first_name : "test",
+    last_name : "test",
+    phone_number : "3123-123-1234",
+    username : "test",
+    password : "test",
+    user_address : "123 high street",
+    is_accepting_rides : false,
+    is_active : false,
+    isDriver : false,
     is_manager : false,
     office : this.office 
   }
   
   car:Car = {
-    car_id : 0,
+    car_id : 38,
     color: "white",
     make : "Chevy",
     model : "Silverado",
@@ -69,6 +69,9 @@ export class TestServicesComponent implements OnInit {
     // this.addOffice();
     // this.addEmployee();
     // this.addCar();
+    // this.updateOffice();
+    // this.updateEmployee();
+    // this.updateCar();
   }
 
   // works
@@ -96,6 +99,7 @@ export class TestServicesComponent implements OnInit {
     
   }
 
+  // works
   async updateCar(){
     let response = await this.carService.updateCar(this.car);
     console.log(response);
@@ -125,12 +129,13 @@ export class TestServicesComponent implements OnInit {
     console.log(response);
   }
 
+  // works
   async deleteEmployee(){
-    let response = await this.employeeService.deleteEmployee(11);
+    let response = await this.employeeService.deleteEmployee(29);
     console.log(response);
     }
 
-
+  // works
   async updateEmployee(){
     let response = await this.employeeService.updateEmployee(this.employee);
     console.log(response);
@@ -159,15 +164,7 @@ export class TestServicesComponent implements OnInit {
     await this.officeService.deleteOffice(107);
   }
 
-
-  // testUpdateOffice(){
-  //   let home:Office = this.getOfficeById(108).subscribe {
-  //      office_id : 108,
-  //     office_address : "13492 Monroe St"
-  //   }
-  //   this.updateOffice(this.home);
-  // }
-
+  // works
   async updateOffice(){
     let response = await this.officeService.updateOffice(this.office);
     console.log(response);
