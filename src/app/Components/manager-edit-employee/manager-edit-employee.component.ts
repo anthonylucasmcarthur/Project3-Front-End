@@ -25,13 +25,20 @@ async populateEmployeeTable(){
 
   
   async delete(employee){
+
+    alert(`{{employee.first_name}} ` + `{{employee.last_name}} ` + `was deleted!`);
     await this.ess.deleteEmployee(employee.employee_id);
     this.ngOnInit();
+    
   }
   async promote(employee){
 
     employee.is_manager = true; 
-    await this.ess.updateEmployee(employee);
+    let tempE:Employee = await this.ess.updateEmployee(employee);
+
     this.ngOnInit(); 
+    if(tempE.is_manager = true){
+      alert(`{{employee.first_name}} ` + `{{employee.last_name}} ` + `was promoted!`); 
+    }
   }
 }
