@@ -14,9 +14,9 @@ export class EmployeeServiceService {
     return this.http.get<Employee>(`http://localhost:9999/employees/${employee_id}`).toPromise();
   }
 
-  getAllEmployees():Promise<Employee>{
+  getAllEmployees():Promise<Employee[]>{
 
-    return this.http.get<Employee>(`http://localhost:9999/employees`).toPromise();
+    return this.http.get<Employee[]>(`http://localhost:9999/employees`).toPromise();
   }
 
   login(user:Employee):Promise<Employee>{
@@ -25,14 +25,9 @@ export class EmployeeServiceService {
   }
 
   addEmployee(user:Employee):Promise<Employee>{
-    console.log(user);
-    
-    let headers: HttpHeaders = new HttpHeaders();
-    headers.append("Vary", "Origin");
-    headers.append("Vary", "Access-Control-Request-Method");
-    headers.append("Vary", "Access-Control-Request-Headers");
-    headers.append("Content-Type", "application/json");
-    return this.http.post<Employee>(`http://localhost:9999/employees/register`,user, {headers}).toPromise();
+
+    return this.http.post<Employee>(`http://localhost:9999/employees/register`,user).toPromise();
+
   }
 
   deleteEmployee(employee_id:number):Promise<any>{
