@@ -1,1 +1,25 @@
 <p>edit-contact works!</p>
+
+<div id="contactInfo">
+    <h5 id="infoLabel">First Name</h5>
+    <input type="text" id="firstNameInput" [(ngModel)]=f_name value="{{employee.first_name}}"> 
+    <h5 id="infoLabel">Last Name</h5>
+    <input type="text" id="lastNameInput" [(ngModel)]=l_name value="{{employee.last_name}}"> 
+    <h5 id="infoLabel">Email</h5>
+    <input type="text" id="emailInput" [(ngModel)]=email value="{{employee.email}}"> 
+    <h5 id="infoLabel">Phone Number</h5>
+    <input type="text" id="phoneInput" [(ngModel)]=phone value="{{employee.phone_number}}"> 
+    <h5 id="infoLabel">Username</h5>
+    <input type="text" id="usernameInput" [(ngModel)]=username value="{{employee.username}}"> 
+    <h5 id="infoLabel">Password</h5>
+    <input type="text" id="passwordInput" [(ngModel)]=password value="{{employee.password}}"> 
+    <h5 id="infoLabel">Address</h5>
+    <input type="text" id="addressInput" [(ngModel)]=address value="{{employee.user_address}}"> 
+
+    <input type="checkbox" id="driverCheck" [(ngModel)]=isDriver ng-checked="isChecked" value="{{employee.isDriver}}">
+    <label for="driverCheck"> Driver</label>
+    <input type="checkbox" id="activeCheck" [(ngModel)]=isActive ng-checked="isChecked" value="{{employee.is_active}}">
+    <label for="activeCheck"> Active</label><br>
+
+    <button id="updateButton" (click)="UpdateContactInfo(employee)">Update</button>
+</div>
