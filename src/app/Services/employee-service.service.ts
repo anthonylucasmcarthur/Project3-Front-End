@@ -14,9 +14,9 @@ export class EmployeeServiceService {
     return this.http.get<Employee>(`http://localhost:9999/employees/${employee_id}`).toPromise();
   }
 
-  getAllEmployees():Promise<Employee>{
+  getAllEmployees():Promise<Employee[]>{
 
-    return this.http.get<Employee>(`http://localhost:9999/employees`).toPromise();
+    return this.http.get<Employee[]>(`http://localhost:9999/employees`).toPromise();
   }
 
   login(user:Employee):Promise<Employee>{
