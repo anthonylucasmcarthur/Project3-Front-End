@@ -10,13 +10,13 @@ import { EmployeeServiceService } from 'src/app/Services/employee-service.servic
 export class ManagerEditEmployeeComponent implements OnInit {
 
 
- // employee:Array<Employee>= [];
+  employees:Array<Employee>= [];
   
   constructor(public ess:EmployeeServiceService) { }
 
 async populateEmployeeTable(){
   let tempE:Employee[] = await this.ess.getAllEmployees(); 
-  this.employee = tempE; 
+  this.employees = tempE; 
 }
 
   ngOnInit() {
