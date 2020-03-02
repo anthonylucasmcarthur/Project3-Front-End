@@ -15,7 +15,7 @@ export class EmployeePageComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle("Profile - Rideshare")
+    this.titleService.setTitle("Profile - RideShare")
     this.showCarEdit = false;
     this.showContactEdit = true;
     this.showLocationEdit = false;
