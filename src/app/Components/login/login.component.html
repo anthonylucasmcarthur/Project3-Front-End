@@ -3,6 +3,10 @@
 <ng-template #template>
     
     <div *ngIf = showLogin class = "modal-title-container">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
         Username:
         <input id="username" type = "text" [(ngModel)] = "username">
     

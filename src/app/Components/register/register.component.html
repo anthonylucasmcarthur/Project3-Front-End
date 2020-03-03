@@ -2,6 +2,11 @@
 
     <ng-template #template>
     <div class = "modal-title-container" >
+        
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
         First Name:
         <input id = "fname" type = "text" [(ngModel)] = "fname">
         Last Name:
