@@ -14,9 +14,16 @@ export class OfficeServiceService {
     return this.http.get<Office>(`http://localhost:9999/offices/${office_id}`).toPromise();
   }
 
-  getAllOffices():Promise<Office>{
 
-    return this.http.get<Office>(`http://localhost:9999/offices`).toPromise();
+  getAllOffices():Promise<Array<Office>>{
+
+    return this.http.get<Array<Office>>(`http://localhost:9999/offices`).toPromise();
+  }
+
+  //this register one
+  getAllOffices1():Promise<Office[]>{
+
+    return this.http.get<Office[]>(`http://localhost:9999/offices`).toPromise();
   }
 
   addOffice(office:Office):Promise<Office>{

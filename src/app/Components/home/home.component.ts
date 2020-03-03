@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Office } from 'src/app/Models/Office';
+import { OfficeServiceService } from 'src/app/Services/office-service.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,24 +13,17 @@ export class HomeComponent implements OnInit {
   showHome:boolean;
   showLogin:boolean;
   showRegister:boolean;
+  offices : Office[];
 
-  constructor() { }
+  constructor(private os : OfficeServiceService) { }
 
   ngOnInit() {
-    this.showHome = true;
-    this.showLogin = false;
-    this.showRegister = false;
+    
   }
-
-
-  Login(){
-    this.showHome = false;
-    this.showLogin = true;
-  }
-
-  Register(){
-    this.showHome = false;
-    this.showRegister = true;
+  
+  async register(){
+    this.offices =  await this.os.getAllOffices();
+    sessionStorage.setItem("offices", JSON.stringify(this.offices));
   }
 
 }
