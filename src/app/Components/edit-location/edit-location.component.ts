@@ -15,24 +15,20 @@ export class EditLocationComponent implements OnInit {
   constructor(private officeService : OfficeServiceService, private employeeService : EmployeeServiceService, private configService:ConfigServiceService) { }
 
   employee : Employee = null;
-  offices : Office;
+  offices : Array<Office> = [];
   officeCities : Array<string> = [];
   cityOffices : Array<Office> = [];
+  placeholder : string;
 
   ngOnInit() {
     this.configService.currentEmployee.subscribe(currentEmployee => this.employee = currentEmployee);
     this.GetAllOffices();
   }
 
-  public GetAllCityOffices(city : string){
-    console.log("method entered");
+  public GetAllCityOffices(){
+    this.cityOffices = [];
     for(let i = 0; i < this.offices.length; i++){
-      console.log("for entered");
-      console.log(this.offices[i].office_address);
-        console.log(city);
-      if(this.offices[i].office_address.includes(city)){
-        console.log("if entered");
-        
+      if(this.offices[i].office_address.includes(this.placeholder)){
         this.cityOffices.push(this.offices[i]);
       }
     }
@@ -40,10 +36,9 @@ export class EditLocationComponent implements OnInit {
   }
 
   async GetAllOffices(){
-    let offices: Office = await this.officeService.getAllOffices()
+    let o: Array<Office> = await this.officeService.getAllOffices()
     .then((onfulfilled) => {
       this.offices = onfulfilled;
-
       //for future batches, this whole mess below can be avoided by either seperating address into street, city, state and zip
         //or just making a new column and giving each office a name
       for(let i = 0; i < this.offices.length; i++){
