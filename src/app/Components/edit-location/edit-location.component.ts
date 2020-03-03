@@ -29,9 +29,21 @@ export class EditLocationComponent implements OnInit {
       this.offices = onfulfilled;
       console.log(this.offices);
 
+      //for future batches, this whole mess below can be avoided by either seperating address into street, city, state and zip
+        //or just making a new column and giving each office a name
       for(let i = 0; i < this.offices.length; i++){
+        let counter = 0;
         let city : string = this.offices[i].office_address.split(", ")[1];
-        this.officeCities.push(city);
+        for(let j = 0; j < this.officeCities.length; j++){
+          if(this.officeCities[i] == city){
+            counter++;
+            break;
+          }
+        }
+
+        if(counter== 0){
+          this.officeCities.push(city);
+        }
       }
       console.log(this.officeCities);
       return onfulfilled;
