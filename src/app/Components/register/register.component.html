@@ -16,11 +16,17 @@
     City:
     <input id = "city" type = "text" [(ngModel)] = "city">
     State:
-    <input id = "state" type = "text" [(ngModel)] = "state">
+    <select class="form-control"  id="State" [(ngModel)] = "state">
+        <option value="none" selected disabled hidden>  
+        </option>
+        <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
+    </select>
     ZIP Code:
-    <input id = "zip" type = "text" [(ngModel)] = "zip">
+    <input id = "zip" type = "number" [(ngModel)] = "zip">
     Office:
-    <input id = "office" type = "text" [(ngModel)] = "office">
+    <select id="location" (change)='changeLocation($event)'>
+        <option *ngFor="let off of offices" [value]="off.office_id">{{off.office_address}}</option>
+    </select>
     Driver:
     <input id = "isDriver" type="checkbox" [(ngModel)]="checked">
     <button id="submit" (click) = "submit()">Submit</button>
