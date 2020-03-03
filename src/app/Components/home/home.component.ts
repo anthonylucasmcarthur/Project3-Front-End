@@ -15,20 +15,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.showHome = true;
-    this.showLogin = false;
-    this.showRegister = false;
-  }
-
-
-  Login(){
-    this.showHome = false;
-    this.showLogin = true;
-  }
-
-  Register(){
-    this.showHome = false;
-    this.showRegister = true;
+    
   }
 
 }
