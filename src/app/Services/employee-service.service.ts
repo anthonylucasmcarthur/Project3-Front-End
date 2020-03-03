@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import{Employee} from '../Models/Employee';
 
 @Injectable({
@@ -14,9 +14,9 @@ export class EmployeeServiceService {
     return this.http.get<Employee>(`http://localhost:9999/employees/${employee_id}`).toPromise();
   }
 
-  getAllEmployees():Promise<Employee>{
+  getAllEmployees():Promise<Employee[]>{
 
-    return this.http.get<Employee>(`http://localhost:9999/employees`).toPromise();
+    return this.http.get<Employee[]>(`http://localhost:9999/employees`).toPromise();
   }
 
   login(user:Employee):Promise<Employee>{
@@ -25,8 +25,9 @@ export class EmployeeServiceService {
   }
 
   addEmployee(user:Employee):Promise<Employee>{
-   
-    return this.http.post<Employee>(`http://localhost:9999/employees`,user).toPromise();
+
+    return this.http.post<Employee>(`http://localhost:9999/employees/register`,user).toPromise();
+
   }
 
   deleteEmployee(employee_id:number):Promise<any>{
