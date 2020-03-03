@@ -4,6 +4,7 @@ import{EmployeeServiceService} from 'src/app/Services/employee-service.service';
 import{Office} from 'src/app/Models/Office';
 import{OfficeServiceService} from 'src/app/Services/office-service.service';
 import {ConfigServiceService} from 'src/app/Services/config-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
             'KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY',
             'NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV',
             'WI','WY'];
-  constructor(private es: EmployeeServiceService, private os: OfficeServiceService, private cs:ConfigServiceService) { 
+  constructor(private es: EmployeeServiceService, private os: OfficeServiceService, private cs:ConfigServiceService, private r : Router) { 
     this.checked = false;
   }
   ngOnInit() {
@@ -39,39 +40,17 @@ export class RegisterComponent implements OnInit {
     console.log(this.offices);
     this.office = this.offices[0];
   }
-   // this.employee_id = employee_id;
-  // this.email = email;
-  // this.first_name = first_name;
-  // this.last_name = last_name;
-  // this.phone_number = phone_number;
-  // this.username = username;
-  // this.password = password;
-  // this.user_address = user_address;
-  // this.is_accepting_rides = is_accepting_rides;
-  // this.is_active = is_active;
-  // this.isDriver = isDriver;
-  // this.is_manager = is_manager;
-  // this.office = office;
+
   async submit(){
-    
-    let username=((document.getElementById("username")as HTMLInputElement).value);
-    let password=((document.getElementById("password")as HTMLInputElement).value);
-    let email=((document.getElementById("email")as HTMLInputElement).value);
-    let phone=((document.getElementById("phone")as HTMLInputElement).value);
-    let fname=((document.getElementById("fname")as HTMLInputElement).value);
-    let lname=((document.getElementById("lname")as HTMLInputElement).value);
-    let street=((document.getElementById("street")as HTMLInputElement).value);
-    let city=((document.getElementById("city")as HTMLInputElement).value);
-    let state=this.state;
-    let zip= this.zip;
-    let uaddress= street + ", "+ city + ", " + state + " " + zip;
-    let  empl:Employee = new Employee(0,email,fname,lname,phone,username,password,uaddress,true,true,this.checked,false,this.office);
-    let veri = await this.cs.verifyAddress(state ,city, street, zip);
+    let uaddress= this.street + ", "+ this.city + ", " + this.state + " " + this.zip;
+    let  empl:Employee = new Employee(0,this.email,this.fname,this.lname,this.phone,this.username,this.password,uaddress,true,true,this.checked,false,this.office);
+    let veri = await this.cs.verifyAddress(this.state ,this.city, this.street, this.zip);
     console.log(veri);
-    let verstat = veri.is_valid;
+    let verstat = veri;
     if(verstat) {
       try {
         let e:Employee =await this.es.addEmployee(empl);
+        this.r.navigateByUrl("/home");
       } catch(e) {
         console.log(e);
       }
