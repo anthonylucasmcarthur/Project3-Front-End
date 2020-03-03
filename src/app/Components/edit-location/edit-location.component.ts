@@ -29,10 +29,10 @@ export class EditLocationComponent implements OnInit {
       this.offices = onfulfilled;
       console.log(this.offices);
 
-      for(let i = 0; i < this.offices.length; i++){
-        let city : string = this.offices[i].office_address.split(", ")[1];
-        this.officeCities.push(city);
-      }
+      // for(let i = 0; i < this.offices.length; i++){
+      //   let city : string = this.offices[i].office_address.split(", ")[1];
+      //   this.officeCities.push(city);
+      // }
       console.log(this.officeCities);
       return onfulfilled;
     })
