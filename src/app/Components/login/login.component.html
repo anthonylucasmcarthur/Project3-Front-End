@@ -16,11 +16,13 @@
 </div>
 
 <div *ngIf = "showManagerPage">
-    <app-manager-page></app-manager-page>
+    <!-- <app-manager-page></app-manager-page> -->
+    <div routerLink="/manager"></div>
 </div>
 
 <div *ngIf = "showEmployeeProfile">
-    <app-employee-page></app-employee-page>
+    <!-- <app-employee-page></app-employee-page> -->
+    <div routerLink="/profile"></div>
 </div>
 
 <div *ngIf = "showShowDrivers">
