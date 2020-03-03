@@ -19,7 +19,7 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'node_modules/ngx-bootstrap';
 
 @NgModule({
