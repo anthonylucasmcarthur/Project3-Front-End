@@ -24,8 +24,6 @@ export class EditLocationComponent implements OnInit {
 
   ngOnInit() {
     this.employee = JSON.parse(sessionStorage.getItem('User'));
-    console.log(this.employee);
-    // this.configService.currentEmployee.subscribe(currentEmployee => this.employee = currentEmployee);
     this.GetAllOffices();
   }
 
