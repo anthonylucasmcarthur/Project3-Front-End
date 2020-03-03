@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import{Employee} from 'src/app/Models/Employee';
 import{EmployeeServiceService} from 'src/app/Services/employee-service.service';
 import{Office} from 'src/app/Models/Office';
 import{OfficeServiceService} from 'src/app/Services/office-service.service';
 import {ConfigServiceService} from 'src/app/Services/config-service.service';
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef} from 'ngx-bootstrap';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -26,11 +27,14 @@ export class RegisterComponent implements OnInit {
   showRegister:boolean;
   offices: Office;
   office: Office;
+  modalRef: BsModalRef;
+
+
   states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS',
             'KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY',
             'NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV',
             'WI','WY'];
-  constructor(private es: EmployeeServiceService, private os: OfficeServiceService, private cs:ConfigServiceService, private r : Router) { 
+  constructor(private es: EmployeeServiceService, private os: OfficeServiceService, private cs:ConfigServiceService, private r : Router, private modalService : BsModalService) { 
     this.checked = false;
   }
   ngOnInit() {
@@ -40,6 +44,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.offices);
     this.office = this.offices[0];
   }
+
+  openModal(template :TemplateRef<any>){
+		this.modalRef = this.modalService.show(template);
+	}
 
   async submit(){
     let uaddress= this.street + ", "+ this.city + ", " + this.state + " " + this.zip;
