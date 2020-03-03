@@ -52,6 +52,7 @@ export class EditLocationComponent implements OnInit {
     let o: Array<Office> = await this.officeService.getAllOffices()
     .then((onfulfilled) => {
       this.offices = onfulfilled;
+
       //for future batches, this whole mess below can be avoided by either seperating address into street, city, state and zip
         //or just making a new column and giving each office a name
       for(let i = 0; i < this.offices.length; i++){
@@ -67,6 +68,7 @@ export class EditLocationComponent implements OnInit {
           this.officeCities.push(city);
         }
       }
+
       return onfulfilled;
     })
   }
