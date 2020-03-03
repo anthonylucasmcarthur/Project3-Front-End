@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     let  empl:Employee = new Employee(0,email,fname,lname,phone,username,password,uaddress,true,true,this.checked,false,this.office);
     let veri = await this.cs.verifyAddress(state ,city, street, zip);
     console.log(veri);
-    let verstat = veri.is_valid;
+    let verstat = veri;
     if(verstat) {
       try {
         let e:Employee =await this.es.addEmployee(empl);
