@@ -1,21 +1,27 @@
+<a (click)="openModal(template)">Login</a >
 
-<div *ngIf = showLogin>
-    Username:
-    <input id="username" type = "text" [(ngModel)] = "username">
-
-    Password:
-    <input id="password" type = "password" [(ngModel)] = "password">
-
-    <button id="submit" (click) = "submit()">Submit</button>
-</div>
-
-<div *ngIf = showNavBar>
-    <app-nav-bar></app-nav-bar>
-
+<ng-template #template>
     
-</div>
+    <div *ngIf = showLogin class = "modal-title-container">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
 
-<div *ngIf = "showManagerPage">
+        Username:
+        <input id="username" type = "text" [(ngModel)] = "username">
+    
+        Password:
+        <input id="password" type = "password" [(ngModel)] = "password">
+    
+        <button id="submit" (click) = "employeelogin()">Submit</button>
+    </div>
+
+</ng-template>
+
+
+
+
+<!-- <div *ngIf = "showManagerPage">
     <app-manager-page></app-manager-page>
 </div>
 
@@ -25,4 +31,4 @@
 
 <div *ngIf = "showShowDrivers">
     <app-show-drivers></app-show-drivers>
-</div>
+</div> --> 

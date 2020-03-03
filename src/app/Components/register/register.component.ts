@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import{Employee} from 'src/app/Models/Employee';
 import{EmployeeServiceService} from 'src/app/Services/employee-service.service';
 import{Office} from 'src/app/Models/Office';
+import{OfficeServiceService} from 'src/app/Services/office-service.service';
+import {ConfigServiceService} from 'src/app/Services/config-service.service';
+import { Router } from '@angular/router';
+import { BsModalService, BsModalRef} from 'ngx-bootstrap';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,51 +21,58 @@ export class RegisterComponent implements OnInit {
   street:string;
   city:string;
   state:string;
-  zip:string;
+  zip:number;
   checked: boolean;
   showLogin:boolean;
   showRegister:boolean;
-  constructor(private es: EmployeeServiceService) { 
+  offices: Office;
+  office: Office;
+  modalRef: BsModalRef;
+
+
+  states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS',
+            'KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY',
+            'NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV',
+            'WI','WY'];
+  constructor(private es: EmployeeServiceService, private os: OfficeServiceService, private cs:ConfigServiceService, private r : Router, private modalService : BsModalService) { 
     this.checked = false;
   }
   ngOnInit() {
     this.showLogin = false;
     this.showRegister = true;
+    this.offices = JSON.parse(sessionStorage.getItem("offices"));
+    console.log(this.offices);
+    this.office = this.offices[0];
   }
-   // this.employee_id = employee_id;
-  // this.email = email;
-  // this.first_name = first_name;
-  // this.last_name = last_name;
-  // this.phone_number = phone_number;
-  // this.username = username;
-  // this.password = password;
-  // this.user_address = user_address;
-  // this.is_accepting_rides = is_accepting_rides;
-  // this.is_active = is_active;
-  // this.isDriver = isDriver;
-  // this.is_manager = is_manager;
-  // this.office = office;
+
+  openModal(template :TemplateRef<any>){
+		this.modalRef = this.modalService.show(template);
+	}
+
   async submit(){
-    let username=((document.getElementById("username")as HTMLInputElement).value);
-    let password=((document.getElementById("password")as HTMLInputElement).value);
-    let email=((document.getElementById("email")as HTMLInputElement).value);
-    let phone=((document.getElementById("phone")as HTMLInputElement).value);
-    let fname=((document.getElementById("fname")as HTMLInputElement).value);
-    let lname=((document.getElementById("lname")as HTMLInputElement).value);
-    let street=((document.getElementById("street")as HTMLInputElement).value);
-    let city=((document.getElementById("city")as HTMLInputElement).value);
-    let state=((document.getElementById("state")as HTMLInputElement).value);
-    let zip=((document.getElementById("zip")as HTMLInputElement).value);
-    let office=((document.getElementById("office")as HTMLInputElement).value);
-    let uaddress= street + ", "+ city + ", " + state + " " + zip;
-    let  off:Office = new Office(0,office);
-    let  empl:Employee = new Employee(0,email,fname,lname,phone,username,password,uaddress,true,true,this.checked,false,off);
-    try {
-      let e:Employee =await this.es.addEmployee(empl);
-  } catch(e) {
-      console.log(e);
-  }
+    let uaddress= this.street + ", "+ this.city + ", " + this.state + " " + this.zip;
+    let  empl:Employee = new Employee(0,this.email,this.fname,this.lname,this.phone,this.username,this.password,uaddress,true,true,this.checked,false,this.office);
+    let veri = await this.cs.verifyAddress(this.state ,this.city, this.street, this.zip);
+    console.log(veri);
+    let verstat = veri;
+    if(verstat) {
+      try {
+        let e:Employee =await this.es.addEmployee(empl);
+        this.r.navigateByUrl("/home");
+      } catch(e) {
+        console.log(e);
+      }
+    } else {
+      console.log("asdasd");
+    }
+    
     // this.showLogin = true;
     // this.showRegister = false;
   }
+
+  changeLocation(event) {
+    let option = event.target.options.selectedIndex;
+    this.office = this.offices[option];
+    console.log(this.office);
+	}
 }
