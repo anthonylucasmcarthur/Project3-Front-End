@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.showLogin = true;
-    this.showNavBar = false;
     this.showManagerPage = false;
     this.showEmployeeProfile = false;
     this.showShowDrivers = false;
