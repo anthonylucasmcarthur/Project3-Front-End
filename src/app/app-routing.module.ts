@@ -6,6 +6,7 @@ import { EmployeePageComponent } from './Components/employee-page/employee-page.
 import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
 import { ManagerPageComponent } from './Components/manager-page/manager-page.component';
+import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
 
 const routes: Routes = [
 
@@ -15,6 +16,7 @@ const routes: Routes = [
 {path: "register", component: RegisterComponent},
 {path: "login", component: LoginComponent},
 {path: "manager", component: ManagerPageComponent},
+{path: "mee", component: ManagerEditEmployeeComponent},
 {path: "**", component: HomeComponent}
 
 ];

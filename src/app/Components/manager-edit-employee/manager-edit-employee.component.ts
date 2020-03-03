@@ -25,8 +25,8 @@ async populateEmployeeTable(){
 
   
   async delete(employee){
-
-    alert(`{{employee.first_name}} ` + `{{employee.last_name}} ` + `was deleted!`);
+    console.log(employee); 
+    alert(`${employee.first_name} ` + `${employee.last_name} ` + `was deleted!`);
     await this.ess.deleteEmployee(employee.employee_id);
     this.ngOnInit();
     
@@ -38,7 +38,7 @@ async populateEmployeeTable(){
 
     this.ngOnInit(); 
     if(tempE.is_manager = true){
-      alert(`{{employee.first_name}} ` + `{{employee.last_name}} ` + `was promoted!`); 
+      alert(`${employee.first_name} ` + `${employee.last_name} ` + `was promoted!`); 
     }
   }
 }
