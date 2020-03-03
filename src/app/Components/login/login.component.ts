@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Models/Employee';
 import { EmployeeServiceService } from 'src/app/Services/employee-service.service';
+import { ConfigServiceService } from 'src/app/Services/config-service.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   showEmployeeProfile:boolean;
   showShowDrivers:boolean;
 
-  constructor(private es : EmployeeServiceService) { }
+  constructor(private es : EmployeeServiceService, private cs : ConfigServiceService) { }
 
   ngOnInit() {
     this.showLogin = true;
@@ -42,9 +43,10 @@ export class LoginComponent implements OnInit {
       console.log(e);
       if(e != null){
         let key = 'User'
-        sessionStorage.setItem(key,JSON.stringify(e));
-        let user = JSON.parse(sessionStorage.getItem(key))
-        console.log(user);
+        this.cs.changeEmployee(e);
+        // sessionStorage.setItem(key,JSON.stringify(e));
+        // let user = JSON.parse(sessionStorage.getItem(key))
+        // console.log(user);
       }
       else {
         console.log("c")

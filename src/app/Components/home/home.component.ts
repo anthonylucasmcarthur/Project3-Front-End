@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,20 +15,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.showHome = true;
-    this.showLogin = false;
-    this.showRegister = false;
-  }
-
-
-  Login(){
-    this.showHome = false;
-    this.showLogin = true;
-  }
-
-  Register(){
-    this.showHome = false;
-    this.showRegister = true;
+    
   }
 
 }

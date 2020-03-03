@@ -1,8 +1,17 @@
 <p>edit-location works!</p>
 
 <div id="locationInfo">
-    <h5 id="stateLabel">State</h5>
-    <select id="citySelect">
+    <h5 id="stateLabel">City</h5>
+    <select id="citySelect" (change)="GetAllCityOffices();" [(ngModel)]=city>
+        <option value=" Select a City " selected disabled hidden> Select a City </option> 
         <option *ngFor="let string of officeCities" value="{{string}}">{{string}}</option>
     </select>
+
+    <h5>Offices</h5>
+    <select id="officeSelect" (click)="updateOffice();" [(ngModel)] = office>
+        <option value=" Select an Office " selected disabled hidden> Select an Office </option> 
+        <option *ngFor="let Office of cityOffices" value="{{Office.office_address}}">{{Office.office_address}}</option>
+    </select>
+
+    <button id="updateButton" (click)="UpdateContactInfo(employee)">Update</button>
 </div>

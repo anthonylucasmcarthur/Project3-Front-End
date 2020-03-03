@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
-
+import { ShowDriversComponent } from './Components/show-drivers/show-drivers.component';
+import { HomeComponent} from './Components/home/home.component';
+import { EmployeePageComponent } from './Components/employee-page/employee-page.component';
 
 const routes: Routes = [
-{path: "mee", component : ManagerEditEmployeeComponent}, 
-{path:"**", component: HomeComponent}
+
+{path: "drivers", component: ShowDriversComponent},
+{path: "home", component: HomeComponent},
+{path: "profile", component: EmployeePageComponent},
+{path: "**", component: HomeComponent}
 
 ];
 
