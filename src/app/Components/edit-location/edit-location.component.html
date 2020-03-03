@@ -2,7 +2,7 @@
 
 <div id="locationInfo">
     <h5 id="stateLabel">State</h5>
-    <select id="citySelect">
+    <select id="citySelect" (change)="GetAllCityOffices(value);">
         <option *ngFor="let string of officeCities" value="{{string}}">{{string}}</option>
     </select>
 </div>

@@ -19,7 +19,7 @@ import { EditCarComponent } from './Components/edit-car/edit-car.component';
 import { EditOfficeComponent } from './Components/edit-office/edit-office.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
     HttpClientModule
   ],
   providers: [Title],
