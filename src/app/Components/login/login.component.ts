@@ -32,15 +32,11 @@ export class LoginComponent implements OnInit {
     let username=((document.getElementById("username")as HTMLInputElement).value);
     let password=((document.getElementById("password")as HTMLInputElement).value);
     let  empl:Employee = new Employee(0,"","","","",username,password,"",false,true,false,false,null);
-    // console.log(empl);
     let e:Employee = await this.es.login(empl);
-      // console.log(e);
       if(e != null){
-        console.log("asdgkashgkjagksfdj")
         let key = 'User'
         sessionStorage.setItem(key,JSON.stringify(e));
         let user = JSON.parse(sessionStorage.getItem(key))
-        // console.log(user);
         if(e.is_manager){
           this.r.navigateByUrl("/manager");
 
