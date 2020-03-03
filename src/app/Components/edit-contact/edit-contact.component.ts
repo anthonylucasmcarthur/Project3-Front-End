@@ -13,7 +13,7 @@ export class EditContactComponent implements OnInit {
   constructor(private employeeService: EmployeeServiceService, private configService:ConfigServiceService) { }
 
   employeeId : number;
-  employee: Employee = null;
+  employee: Employee;
   f_name : string;
   l_name : string;
   username : string;
@@ -24,9 +24,17 @@ export class EditContactComponent implements OnInit {
   isDriver : boolean;
   isActive : boolean;
 
-
   ngOnInit() {
-    this.configService.currentEmployee.subscribe(currentEmployee => this.employee = currentEmployee);
+    this.employee = JSON.parse(sessionStorage.getItem('User'));
+    this.f_name = this.employee.first_name;
+    this.l_name = this.employee.last_name;
+    this.username = this.employee.username;
+    this.password = this.employee.password;
+    this.email = this.employee.email;
+    this.phone = this.employee.phone_number;
+    this.address = this.employee.user_address;
+    this.isDriver = this.employee.isDriver;
+    this.isActive = this.employee.is_active;
   }
 
   async UpdateContactInfo(){
