@@ -20,6 +20,12 @@ export class OfficeServiceService {
     return this.http.get<Array<Office>>(`http://localhost:9999/offices`).toPromise();
   }
 
+  //this register one
+  getAllOffices1():Promise<Office[]>{
+
+    return this.http.get<Office[]>(`http://localhost:9999/offices`).toPromise();
+  }
+
   addOffice(office:Office):Promise<Office>{
    
     return this.http.post<Office>(`http://localhost:9999/offices`,office).toPromise();
