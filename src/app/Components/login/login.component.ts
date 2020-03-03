@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Employee } from 'src/app/Models/Employee';
 import { EmployeeServiceService } from 'src/app/Services/employee-service.service';
 import { ConfigServiceService } from 'src/app/Services/config-service.service';
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
   showManagerPage:boolean;
   showEmployeeProfile:boolean;
   showShowDrivers:boolean;
-
-  constructor(private es : EmployeeServiceService, private cs : ConfigServiceService, private r : Router) { }
+  modalRef :BsModalRef;
+  
+  constructor(private es : EmployeeServiceService, private cs : ConfigServiceService, private r : Router, private modalService : BsModalService) { }
 
   ngOnInit() {
     this.showLogin = true;
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit {
     this.showEmployeeProfile = false;
     this.showShowDrivers = false;
   }
+
+  openModal(template :TemplateRef<any>){
+		this.modalRef = this.modalService.show(template);
+	}
+
 
   async employeelogin(){
     let username=((document.getElementById("username")as HTMLInputElement).value);
