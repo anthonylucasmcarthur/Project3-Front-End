@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { EditOfficeComponent } from './Components/edit-office/edit-office.compon
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { ManagerEditEmployeeComponent } from './Components/manager-edit-employee/manager-edit-employee.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
