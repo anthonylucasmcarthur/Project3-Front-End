@@ -1,20 +1,25 @@
-<p>Edit Employee</p>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Delete</th>
-        <th>Promote</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="c" *ngFor = "let employee of employees">
-          <td>{{employee.first_name}}</td>    
-          <td>{{employee.last_name}}</td> 
-          <td><button id = "delete1" (click) = "delete(employee)">Delete </button></td>    
-          <td><button id = "promote1" (click) = "promote(employee)">Promote </button></td> 
-      </tr>
-    </tbody>
-  </table>
+
+<div class="container">
+  <div class="row  offset-lg-1  offset-sm-1 col-lg-10 col-sm-8">
+    <h3 class="text-center">Employees</h3>
+    <table class="table table-hover table-sm table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Delete</th>
+          <th>Promote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="c" *ngFor = "let employee of employees">
+            <td>{{employee.first_name}}</td>    
+            <td>{{employee.last_name}}</td> 
+            <td><button id = "delete1" class="btn btn-sm myBtn" type="button" (click) = "delete(employee)">Delete </button></td>    
+            <td><button id = "promote1" class="btn btn-sm myBtn" type="button" (click) = "promote(employee)">Promote </button></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

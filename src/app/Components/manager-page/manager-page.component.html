@@ -1,11 +1,17 @@
 
-show employee page
-
-<div *ngIf = "showManagerPage">
-
-    <button id = "editEmployee" (click) = "editEmployee()">Promote / Delete Employee</button>
-    <button id = "editLocation" (click) = "editLocation()">Edit Location</button>
-
+<h1 class="text-center">employee page</h1>
+<div class="container">
+<div class="row  text-center" *ngIf = "showManagerPage">
+    <div class="offset-lg-1 offset-sm-1 col-lg-4 col-sm-10">
+        <h2 class="top">Edit an Employee</h2>
+        <button id = "editEmployee" class="btn  myBtn" type="button" (click) = "editEmployee()">Promote / Delete Employee</button>
+        <!-- <button id = "editLocation" class="btn btn-primary" type="button" (click) = "editLocation()">Edit Location</button> -->
+    </div>
+    <div class="offset-lg-1 offset-sm-1 col-lg-5 col-sm-10">
+        <h2 class="top">Edit a Location</h2>
+        <!-- <button id = "editEmployee" class="btn btn-primary" type="button" (click) = "editEmployee()">Promote / Delete Employee</button> -->
+        <button id = "editLocation" class="btn  myBtn" type="button" (click) = "editLocation()">Edit Location</button>
+    </div>
     
 </div>
 
@@ -15,4 +21,6 @@ show employee page
 
 <div *ngIf = showManagerEditEmployee>
     <app-manager-edit-employee></app-manager-edit-employee>
+</div>
+
 </div>
